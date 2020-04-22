@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t daiki/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run daiki/docker-react npm run test -- --coverage
